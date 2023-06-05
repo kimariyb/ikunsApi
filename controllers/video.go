@@ -253,7 +253,7 @@ func (this *VideoController) Search() {
 		},
 	}
 
-	res := es.EsSearch("fyouku_video", query, offset, limit, sort)
+	res := es.EsSearch("ikuns_video", query, offset, limit, sort)
 	total := res.Total.Value
 	var data []models.Video
 
@@ -312,6 +312,6 @@ func (this *VideoController) SendEs() {
 			"user_id":              v.UserId,
 			"is_recommend":         v.IsRecommend,
 		}
-		es.EsAdd("fyouku_video", "video-"+strconv.Itoa(v.Id), body)
+		es.EsAdd("ikuns_video", "video-"+strconv.Itoa(v.Id), body)
 	}
 }
